@@ -43,6 +43,9 @@
             label4 = new Label();
             player1score = new Label();
             player2score = new Label();
+            PlayerName = new Label();
+            HostName = new Label();
+            newRoundButton = new Button();
             SuspendLayout();
             // 
             // button1
@@ -176,12 +179,42 @@
             player2score.TabIndex = 14;
             player2score.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // PlayerName
+            // 
+            PlayerName.BackColor = Color.White;
+            PlayerName.Location = new Point(12, 297);
+            PlayerName.Name = "PlayerName";
+            PlayerName.Size = new Size(186, 55);
+            PlayerName.TabIndex = 15;
+            PlayerName.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // HostName
+            // 
+            HostName.BackColor = Color.White;
+            HostName.Location = new Point(204, 297);
+            HostName.Name = "HostName";
+            HostName.Size = new Size(268, 55);
+            HostName.TabIndex = 16;
+            HostName.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // newRoundButton
+            // 
+            newRoundButton.Location = new Point(300, 238);
+            newRoundButton.Name = "newRoundButton";
+            newRoundButton.Size = new Size(150, 23);
+            newRoundButton.TabIndex = 17;
+            newRoundButton.Text = "Новый раунд";
+            newRoundButton.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AntiqueWhite;
-            ClientSize = new Size(484, 311);
+            ClientSize = new Size(484, 361);
+            Controls.Add(newRoundButton);
+            Controls.Add(HostName);
+            Controls.Add(PlayerName);
             Controls.Add(player2score);
             Controls.Add(player1score);
             Controls.Add(label4);
@@ -219,5 +252,8 @@
         private Label label4;
         private Label player1score;
         private Label player2score;
+        private Label PlayerName;
+        private Label HostName;
+        private Button newRoundButton;
     }
 }

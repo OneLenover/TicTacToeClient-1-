@@ -18,17 +18,26 @@ namespace TicTacToeClient_1_
             boardButtons = new Button[] { button1, button2, button3, button4, button5, button6, button7, button8, button9 };
             _myPlayerId = "User_" + Guid.NewGuid().ToString().Substring(0, 4);
 
-            var channel = GrpcChannel.ForAddress("http://localhost:50051");
-            _client = new GameService.GameServiceClient(channel);
-
+            try
+            {
+                var config = AppConfig.Load("appsettings.json");
+                string serverUrl = $"http://{config.gRPC.Host}:{config.gRPC.Port}";
+                HostName.Text = $"Адрес сервера: {serverUrl}";
+                var channel = GrpcChannel.ForAddress(serverUrl);
+                _client = new GameService.GameServiceClient(channel);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка конфигурации: {ex.Message}");
+                Application.Exit();
+            }
+          
             foreach (var btn in boardButtons) btn.Click += OnCellClick;
 
-            /*
             if (Controls.ContainsKey("newRoundButton"))
             {
                 newRoundButton.Click += async (s, e) => await TryResetRoundAsync();
             }
-            */
 
             this.Load += async (s, e) => await ConnectToGameAsync();
         }
@@ -108,9 +117,7 @@ namespace TicTacToeClient_1_
                 };
 
 
-                var resp = await _client.MakeMoveAsync(move);
-                // Ответ придёт и в стрим, но можно сразу обновить UI из ответа метода
-                UpdateUI(resp);
+                await _client.MakeMoveAsync(move);
             }
             catch (RpcException ex)
             {
@@ -127,6 +134,17 @@ namespace TicTacToeClient_1_
         {
             if (state == null) return;
 
+            // Показываем фигуру игрока
+            if (!string.IsNullOrEmpty(state.PlayerXId) || !string.IsNullOrEmpty(state.PlayerOId)) 
+            {
+                string mySymbol = "";
+                if (state.PlayerXId == _myPlayerId)
+                    mySymbol = "X";
+                else if (state.PlayerOId == _myPlayerId)
+                    mySymbol = "O";
+
+                PlayerName.Text = $"Вы играете за: {mySymbol} (ID: {_myPlayerId})";
+            }
 
             // 1) Обновляем клетки и цвета
             var board = state.Board ?? ".........";
@@ -209,7 +227,7 @@ namespace TicTacToeClient_1_
             // Если в форме есть кнопка нового раунда — активируем её
             if (Controls.ContainsKey("newRoundButton"))
             {
-                //newRoundButton.Enabled = true;
+                newRoundButton.Enabled = true;
             }
             else
             {
