@@ -1,105 +1,254 @@
+using Grpc.Core;
+using Grpc.Net.Client;
+using TicTacToe.App.Protos;
+
 namespace TicTacToeClient_1_
 {
     public partial class MainForm : Form
     {
-        bool isPlayerXTurn = true;
-        Button[] boardButtons;
-        int player1Score = 0;
-        int player2Score = 0;
+        private readonly Button[] boardButtons;
+        private readonly GameService.GameServiceClient _client;
+        private readonly string _gameId = "room_1";
+        private readonly string _myPlayerId;
+        private readonly CancellationTokenSource _cts = new();
+
         public MainForm()
         {
             InitializeComponent();
-
             boardButtons = new Button[] { button1, button2, button3, button4, button5, button6, button7, button8, button9 };
-            playerTurn.Text = "Игрок 1";
-            foreach (var btn in boardButtons)
+            _myPlayerId = "User_" + Guid.NewGuid().ToString().Substring(0, 4);
+
+            var channel = GrpcChannel.ForAddress("http://localhost:50051");
+            _client = new GameService.GameServiceClient(channel);
+
+            foreach (var btn in boardButtons) btn.Click += OnCellClick;
+
+            /*
+            if (Controls.ContainsKey("newRoundButton"))
             {
-                btn.Click += OnCellClick;
+                newRoundButton.Click += async (s, e) => await TryResetRoundAsync();
+            }
+            */
+
+            this.Load += async (s, e) => await ConnectToGameAsync();
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            // Останавливаем прослушивание стримов
+            _cts.Cancel();
+            base.OnFormClosing(e);
+        }
+
+        private async Task ConnectToGameAsync()
+        {
+            try
+            {
+                var req = new CreateRequest { PlayerId = _myPlayerId, GameId = _gameId };
+                var response = await _client.CreateGameAsync(req);
+                UpdateUI(response);
+
+
+                // Запуск фонового прослушивания (не ожидаем завершения)
+                _ = StartListeningAsync();
+            }
+            catch (RpcException rex)
+            {
+                MessageBox.Show($"gRPC error: {rex.Status.Detail}", "Ошибка подключения", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка: {ex.Message}", "Ошибка подключения", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void OnCellClick(object sender, EventArgs e)
+        private async Task StartListeningAsync()
         {
-            Button clickedButton = (Button)sender;
+            // Подписываемся на стрим событий игры
+            using var call = _client.SubscribeGameEvents(new StateRequest { GameId = _gameId }, cancellationToken: _cts.Token);
 
-            if (!string.IsNullOrEmpty(clickedButton.Text)) return;
 
-            MakeMove(clickedButton);
+            try
+            {
+                await foreach (var response in call.ResponseStream.ReadAllAsync(_cts.Token))
+                {
+                    if (this.IsDisposed) return;
+
+                    // Обновляем UI в UI-потоке
+                    this.Invoke(new MethodInvoker(() => UpdateUI(response)));
+                }
+            }
+            catch (OperationCanceledException)
+            { }
+            catch (Exception ex)
+            {
+                if (!_cts.IsCancellationRequested)
+                    Console.WriteLine("Stream error: " + ex.Message);
+            }
         }
 
-        private void MakeMove(Button button)
+        private async void OnCellClick(object? sender, EventArgs e)
         {
-            button.Text = isPlayerXTurn ? "X" : "O";
+            if (sender is not Button btn) return;
+            int index = Array.IndexOf(boardButtons, btn);
+            if (index < 0 || index >= 9) return;
 
-            if (CheckWin())
+
+            int x = index / 3;
+            int y = index % 3;
+
+            try
             {
-                UpdateScore();
-                MessageBox.Show($"Игрок {(isPlayerXTurn ? "1 (X)" : "2 (O)")} победил!");
-                ResetBoard();
+                var move = new MoveRequest
+                {
+                    GameId = _gameId,
+                    PlayerId = _myPlayerId,
+                    X = x,
+                    Y = y
+                };
+
+
+                var resp = await _client.MakeMoveAsync(move);
+                // Ответ придёт и в стрим, но можно сразу обновить UI из ответа метода
+                UpdateUI(resp);
             }
-            else if (boardButtons.All(b => b.Text != ""))
+            catch (RpcException ex)
             {
-                MessageBox.Show("Ничья!");
-                ResetBoard();
+                // Показываем деталь ошибки, если сервер вернул её
+                MessageBox.Show(ex.Status.Detail, "Ход невозможен", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void UpdateUI(GameResponse state)
+        {
+            if (state == null) return;
+
+
+            // 1) Обновляем клетки и цвета
+            var board = state.Board ?? ".........";
+            if (board.Length != 9) board = board.PadRight(9, '.').Substring(0, 9);
+
+
+            for (int i = 0; i < 9; i++)
+            {
+                char c = board[i];
+                boardButtons[i].Text = (c == '.') ? string.Empty : c.ToString();
+                boardButtons[i].BackColor = SystemColors.Control;
+            }
+
+
+            // 2) Подсветка победной линии
+            if (state.WinningLine != null && state.WinningLine.Count > 0)
+            {
+                foreach (var idx in state.WinningLine)
+                {
+                    if (idx >= 0 && idx < 9)
+                        boardButtons[idx].BackColor = Color.LightGreen;
+                }
+            }
+
+
+            // 3) Доступность кнопок (только если мой ход и клетка пустая)
+            bool isMyTurn = state.Status == "Playing" && state.CurrentPlayerId == _myPlayerId;
+            for (int i = 0; i < 9; i++)
+            {
+                boardButtons[i].Enabled = isMyTurn && string.IsNullOrEmpty(boardButtons[i].Text);
+            }
+
+
+            // 4) Обновляем счёт и статусы из состояния сервера
+            try
+            {
+                player1score.Text = state.PlayerXScore.ToString();
+                player2score.Text = state.PlayerOScore.ToString();
+            }
+            catch { /* Если лейблы не найдены — пропускаем */ }
+
+
+            if (state.Status == "Waiting")
+            {
+                playerTurn.Text = "Ожидание второго игрока...";
+            }
+            else if (state.Status == "Playing")
+            {
+                playerTurn.Text = isMyTurn ? "ВАШ ХОД!" : "Ход противника...";
+            }
+            else if (state.Status == "Won" || state.Status == "Draw")
+            {
+                ProcessGameOver(state);
+            }
+        }
+
+        private void ProcessGameOver(GameResponse state)
+        {
+            // Отключаем кнопки поля
+            foreach (var b in boardButtons) b.Enabled = false;
+
+
+            if (state.Status == "Won")
+            {
+                if (state.WinnerId == _myPlayerId)
+                {
+                    MessageBox.Show("ВЫ ПОБЕДИЛИ!", "Победа", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("ВЫ ПРОИГРАЛИ!", "Поражение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else if (state.Status == "Draw")
+            {
+                MessageBox.Show("НИЧЬЯ!", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+
+            // Если в форме есть кнопка нового раунда — активируем её
+            if (Controls.ContainsKey("newRoundButton"))
+            {
+                //newRoundButton.Enabled = true;
             }
             else
             {
-                isPlayerXTurn = !isPlayerXTurn;
-                playerTurn.Text = isPlayerXTurn ? "Игрок 1" : "Игрок 2";
-            }
-        }
-
-        private bool CheckWin()
-        {
-            int[][] winners = new int[][]
-            {
-                new[] { 0, 1, 2 }, new[] { 3, 4, 5 }, new[] { 6, 7, 8 },    // Горизонтали
-                new[] { 0, 3, 6 }, new[] { 1, 4, 7 }, new[] { 2, 5, 8 },    // Вертикали
-                new[] { 0, 4, 8 }, new[] { 2, 4, 6 }    // Диагонали
-            };
-
-            foreach (var w in winners)
-            {
-                if (boardButtons[w[0]].Text != "" &&
-                    boardButtons[w[0]].Text == boardButtons[w[1]].Text &&
-                    boardButtons[w[0]].Text == boardButtons[w[2]].Text)
+                // Автоматически сбрасываем раунд через 1.2 секунды — удобно для быстрых игр; можно отключить
+                _ = Task.Run(async () =>
                 {
-                    HighlightWinner(w);
-                    return true;
-                }
+                    try { await Task.Delay(1200, _cts.Token); }
+                    catch { return; }
+
+
+                    if (_cts.IsCancellationRequested) return;
+                    try
+                    {
+                        var resp = await _client.ResetRoundAsync(new StateRequest { GameId = _gameId });
+                        this.Invoke(new MethodInvoker(() => UpdateUI(resp)));
+                    }
+                    catch { /* игнорируем ошибки сброса */ }
+                });
             }
-            return false;
         }
 
-        private void HighlightWinner(int[] indices)
+        private async Task TryResetRoundAsync()
         {
-            foreach (int i in indices)
+            try
             {
-                boardButtons[i].BackColor = Color.LightGreen;
+                //newRoundButton.Enabled = false;
+                var resp = await _client.ResetRoundAsync(new StateRequest { GameId = _gameId });
+                UpdateUI(resp);
             }
-        }
-
-        private void ResetBoard()
-        {
-            foreach (var btn in boardButtons)
+            catch (RpcException rex)
             {
-                btn.Text = "";
-                btn.BackColor = Color.FromKnownColor(KnownColor.Control);
-                btn.UseVisualStyleBackColor = true;
+                MessageBox.Show(rex.Status.Detail, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            isPlayerXTurn = true;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void UpdateScore()
-        {
-            if (isPlayerXTurn) player1Score++; else player2Score++;
-            player1score.Text = player1Score.ToString();
-            player2score.Text = player2Score.ToString();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void label1_Click(object sender, EventArgs e) { }
     }
 }
