@@ -61,7 +61,8 @@ namespace TicTacToeClient_1_
             for (int i = 0; i < 9; i++)
             {
                 char cell = subBoard[i];
-                // Если сервер недоступен, isMyTurn будет false, и canClick тоже
+                // ВАЖНО: Кнопки активируются только если это ход игрока, доска активна и ячейка пуста.
+                // В режиме "Поиск сервера" внешняя логика MainForm принудительно отключит эти кнопки.
                 bool canClick = (cell == '.') && isMyTurn && isBoardActive;
                 Buttons[i].Enabled = canClick;
 

@@ -1,9 +1,9 @@
 using Grpc.Net.Client;
 using TicTacToe.App.Protos;
 using Consul;
-using System.Net.Http;
 using System.Configuration;
 using System.Text;
+using Grpc.Core;
 
 namespace TicTacToeClient_1_
 {
@@ -12,7 +12,6 @@ namespace TicTacToeClient_1_
         private GameService.GameServiceClient? _client;
         private GrpcChannel? _currentChannel;
         private string? _currentLeaderUrl;
-
         private string? _gameId;
         private string _playerId = "";
         private SmallBoardUC[] _boards = new SmallBoardUC[9];
@@ -21,11 +20,8 @@ namespace TicTacToeClient_1_
 
         public MainForm()
         {
-            // Поддержка HTTP/2 без TLS (если сервер настроен так)
             AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
-
             InitializeComponent();
-
             for (int i = 0; i < 9; i++)
             {
                 _boards[i] = new SmallBoardUC(i);
@@ -33,17 +29,11 @@ namespace TicTacToeClient_1_
                 _boards[i].OnCellClick += (cIdx) => MakeMove(idx, cIdx);
                 flowLayoutPanel1.Controls.Add(_boards[i]);
             }
-
-            _timer.Interval = 1500;
+            _timer.Interval = 2000;
             _timer.Tick += async (s, e) => await RefreshState();
-
-            // Запускаем фоновый мониторинг лидера
             _ = MonitorLeaderAsync();
         }
 
-        /// <summary>
-        /// Фоновая задача, которая проверяет смену лидера в Consul
-        /// </summary>
         private async Task MonitorLeaderAsync()
         {
             while (!_cts.Token.IsCancellationRequested)
@@ -51,36 +41,30 @@ namespace TicTacToeClient_1_
                 try
                 {
                     string leaderUrl = await GetLeaderUrlFromConsul();
-
-                    if (!string.IsNullOrEmpty(leaderUrl) && leaderUrl != _currentLeaderUrl)
+                    if (string.IsNullOrEmpty(leaderUrl)) 
+                    {
+                        ResetConnectionAndSearch("Ожидание лидера серверов...");
+                    }
+                    else if (leaderUrl != _currentLeaderUrl) 
                     {
                         await UpdateClientConnection(leaderUrl);
                     }
                 }
-                catch
-                {
-                    // В случае ошибки Consul просто ждем следующей итерации
-                }
-                await Task.Delay(5000); // Проверка каждые 5 секунд
+                catch { SetOfflineState("Ошибка Consul"); }
+                await Task.Delay(2000); 
             }
         }
 
         private async Task<string> GetLeaderUrlFromConsul()
         {
-            string consulAddr = Environment.GetEnvironmentVariable("ConsulAddress")
-                                ?? ConfigurationManager.AppSettings["ConsulAddress"]
-                                ?? "http://localhost:8500";
-
-            using var consul = new ConsulClient(c => c.Address = new Uri(consulAddr));
-
-            // Получаем URL лидера из KV Storage
-            var kvPair = await consul.KV.Get("service/tictactoe-service/leader");
-
-            if (kvPair.Response != null && kvPair.Response.Value != null)
+            try
             {
-                return Encoding.UTF8.GetString(kvPair.Response.Value);
+                string consulAddr = ConfigurationManager.AppSettings["ConsulAddress"] ?? "http://localhost:8500";
+                using var consul = new ConsulClient(c => c.Address = new Uri(consulAddr));
+                var kv = await consul.KV.Get("service/tictactoe-service/leader");
+                if (kv.Response?.Value != null) return Encoding.UTF8.GetString(kv.Response.Value);
             }
-
+            catch { }
             return string.Empty;
         }
 
@@ -89,162 +73,67 @@ namespace TicTacToeClient_1_
             try
             {
                 _currentLeaderUrl = leaderUrl;
-
-                // Закрываем старый канал если был
-                if (_currentChannel != null)
-                {
-                    await _currentChannel.ShutdownAsync();
-                }
-
-                var httpHandler = new HttpClientHandler();
-                // Игнорируем ошибки SSL для локальной разработки
-                httpHandler.ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
-
-                _currentChannel = GrpcChannel.ForAddress(leaderUrl, new GrpcChannelOptions { HttpHandler = httpHandler });
+                if (_currentChannel != null) await _currentChannel.ShutdownAsync();
+                _currentChannel = GrpcChannel.ForAddress(leaderUrl);
                 _client = new GameService.GameServiceClient(_currentChannel);
-
-                this.Invoke(() => {
-                    lblStatus.Text = "Подключено к лидеру: " + leaderUrl;
-                });
+                Console.WriteLine($"[Client] Подключен к новому лидеру: {leaderUrl}");
             }
-            catch (Exception ex)
+            catch { ResetConnectionAndSearch("Сбой подключения"); }
+        }
+
+        private void SetOfflineState(string msg)
+        {
+            if (this.InvokeRequired) { this.BeginInvoke(new Action(() => SetOfflineState(msg))); return; }
+            lblStatus.Text = "ПАУЗА: " + msg;
+            lblStatus.BackColor = Color.LightCoral;
+            LockBoard();
+        }
+
+        private void LockBoard()
+        {
+            foreach (var b in _boards)
             {
-                _client = null;
-                _currentLeaderUrl = null;
-                this.Invoke(() => {
-                    lblStatus.Text = "Ошибка смены лидера: " + ex.Message;
-                    lblStatus.BackColor = Color.Red;
-                });
+                b.SetHighlight(false);
+                foreach (Control c in b.Controls) if (c is Button btn) btn.Enabled = false;
             }
         }
 
-        private async Task<bool> EnsureClient()
+        private async Task<bool> EnsureClient() => _client != null;
+
+        private void HandleException(Exception ex)
         {
-            // Если клиент уже есть и URL лидера актуален
-            if (_client != null && !string.IsNullOrEmpty(_currentLeaderUrl)) return true;
-
-            try
-            {
-                string leaderUrl = await GetLeaderUrlFromConsul();
-                if (string.IsNullOrEmpty(leaderUrl))
-                {
-                    lblStatus.Text = "Лидер сервера не определен в Consul...";
-                    return false;
-                }
-
-                await UpdateClientConnection(leaderUrl);
-                return _client != null;
-            }
-            catch (Exception ex)
-            {
-                lblStatus.Text = "Ошибка поиска лидера: " + ex.Message;
-                return false;
-            }
-        }
-
-        private void OnRulesClick()
-        {
-            string rulesText = @"Ultimate Крестики-Нолики 3x3
-
-Правила игры:
-1. Игровое поле состоит из 9 досок 3x3
-2. Первый ход делается в любую клетку
-3. Следующий ход определяется предыдущим:
-   - Играется в доске, соответствующей позиции последнего хода
-4. Игрок захватывает доску победив по классическим правилам
-5. Побеждает игрок, первым захвативший 3 доски";
-
-            MessageBox.Show(rulesText, "Правила игры", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // Если сервер сообщил, что он еще не нашел ORM (SYSTEM_SYNCING)
+            if (ex is RpcException rpcEx && (rpcEx.StatusCode == StatusCode.Unavailable || rpcEx.Status.Detail == "SYSTEM_SYNCING"))
+                SetOfflineState("Синхронизация системы (ORM/DB)...");
+            else
+                ResetConnectionAndSearch("Переподключение...");
         }
 
         private async void OnCheckPlayer()
         {
-            if (string.IsNullOrWhiteSpace(txtLogin.Text)) return;
-            if (!await EnsureClient()) return;
-
+            if (string.IsNullOrWhiteSpace(txtLogin.Text) || !await EnsureClient()) return;
             _playerId = txtLogin.Text.Trim();
             try
             {
                 var res = await _client!.CheckSessionAsync(new CheckRequest { PlayerId = _playerId });
-                if (res.Exists)
-                {
-                    StartGameSession(_playerId, res.GameId);
-                }
-                else
-                {
-                    loginPanel.Visible = false;
-                    roomPanel.Visible = true;
-                }
+                if (res.Exists) StartGameSession(_playerId, res.GameId);
+                else { loginPanel.Visible = false; roomPanel.Visible = true; }
             }
-            catch { lblStatus.Text = "Лидер недоступен, переподключение..."; _client = null; _currentLeaderUrl = null; }
-        }
-
-        private void OnCreateRoom()
-        {
-            string rid = new Random().Next(1000, 9999).ToString();
-            StartGameSession(_playerId, rid);
-        }
-
-        private void OnJoinRoom()
-        {
-            if (txtRoomId.Text.Length == 4) StartGameSession(_playerId, txtRoomId.Text);
+            catch (Exception ex) { HandleException(ex); }
         }
 
         private async void StartGameSession(string nick, string rid)
         {
             if (!await EnsureClient()) return;
             _gameId = rid;
-
             try
             {
                 var r = await _client!.CreateGameAsync(new CreateRequest { PlayerId = $"{nick}|{rid}" });
-
-                roomPanel.Visible = false;
-                loginPanel.Visible = false;
-                headerPanel.Visible = true;
-                flowLayoutPanel1.Visible = true;
-
+                roomPanel.Visible = false; loginPanel.Visible = false; headerPanel.Visible = true; flowLayoutPanel1.Visible = true;
                 UpdateUI(r);
                 _timer.Start();
             }
-            catch { _client = null; _currentLeaderUrl = null; }
-        }
-
-        private async void OnResetGame()
-        {
-            lblStatus.Text = "Сброс игры...";
-            if (!await EnsureClient() || _gameId == null) return;
-            try
-            {
-                var r = await _client!.ResetGameAsync(new StateRequest { GameId = _gameId, PlayerId = _playerId });
-                UpdateUI(r);
-            }
-            catch { _client = null; _currentLeaderUrl = null; }
-        }
-
-        private async void OnExitRoom()
-        {
-            if (_gameId != null)
-            {
-                try
-                {
-                    if (await EnsureClient())
-                    {
-                        await _client!.ExitGameAsync(new ExitRequest { GameId = _gameId, PlayerId = _playerId });
-                    }
-                }
-                catch { }
-            }
-            _timer.Stop();
-            _gameId = null;
-            _client = null;
-            _currentLeaderUrl = null;
-            flowLayoutPanel1.Visible = false;
-            headerPanel.Visible = false;
-            loginPanel.Visible = true;
-            roomPanel.Visible = false;
-            lblStatus.BackColor = Color.SkyBlue;
-            lblStatus.Text = "Введите логин";
+            catch (Exception ex) { HandleException(ex); }
         }
 
         private async void MakeMove(int bIdx, int cIdx)
@@ -252,78 +141,47 @@ namespace TicTacToeClient_1_
             if (!await EnsureClient() || _gameId == null) return;
             try
             {
-                var r = await _client!.MakeMoveAsync(new MoveRequest
-                {
-                    GameId = _gameId,
-                    PlayerId = _playerId,
-                    BoardX = bIdx % 3,
-                    BoardY = bIdx / 3,
-                    CellX = cIdx % 3,
-                    CellY = cIdx / 3
-                });
-                if (!string.IsNullOrEmpty(r.Error)) MessageBox.Show(r.Error);
+                var r = await _client!.MakeMoveAsync(new MoveRequest { GameId = _gameId, PlayerId = _playerId, BoardX = bIdx % 3, BoardY = bIdx / 3, CellX = cIdx % 3, CellY = cIdx / 3 });
                 UpdateUI(r);
             }
-            catch { _client = null; _currentLeaderUrl = null; }
+            catch (Exception ex) { HandleException(ex); }
         }
 
         private async Task RefreshState()
         {
-            if (_gameId == null) return;
-            if (!await EnsureClient()) return;
+            if (_gameId == null || !await EnsureClient()) return;
             try
             {
                 var r = await _client!.GetStateAsync(new StateRequest { GameId = _gameId, PlayerId = _playerId });
                 UpdateUI(r);
             }
-            catch { _client = null; _currentLeaderUrl = null; }
+            catch (Exception ex) { HandleException(ex); }
+        }
+
+        private void ResetConnectionAndSearch(string msg)
+        {
+            _client = null; _currentLeaderUrl = null;
+            SetOfflineState(msg);
         }
 
         private void UpdateUI(GameResponse r)
         {
             if (this.InvokeRequired) { this.BeginInvoke(new Action(() => UpdateUI(r))); return; }
+            if (!string.IsNullOrEmpty(r.Error) && r.Error == "NOT_FOUND") { SetOfflineState("Комната не найдена"); return; }
 
-            lblInfo.Text = $"ВЫ: {_playerId}  |  КОМНАТА: #{r.GameId}\nИГРОКИ: X({r.PlayerX}) vs O({r.PlayerO})";
-
+            lblInfo.Text = $"ВЫ: {_playerId} | КОМНАТА: #{r.GameId}\nИГРОКИ: X({r.PlayerX}) vs O({r.PlayerO})";
             btnNewGame.Visible = (r.Status != "Playing");
-
             bool isMyTurn = (r.CurrentPlayerId == _playerId) && (r.Status == "Playing");
 
             if (r.Status == "Playing")
             {
-                lblStatus.Text = isMyTurn ? "ВАШ ХОД!" : $"Ожидание: {r.CurrentPlayerId}";
+                lblStatus.Text = isMyTurn ? "ВАШ ХОД!" : $"Ход: {r.CurrentPlayerId}";
                 lblStatus.BackColor = Color.SkyBlue;
-            }
-            else if (r.Status == "Draw")
-            {
-                lblStatus.Text = "ИГРА ЗАВЕРШЕНА: НИЧЬЯ";
-                lblStatus.BackColor = Color.LightGray;
             }
             else
             {
-                bool iAmX = (r.PlayerX == _playerId);
-                bool iAmO = (r.PlayerO == _playerId);
-                bool xWon = (r.Status == "X_Won");
-                bool oWon = (r.Status == "O_Won");
-
-                bool iWon = (iAmX && xWon) || (iAmO && oWon);
-                bool opponentWon = (iAmX && oWon) || (iAmO && xWon);
-
-                if (iWon)
-                {
-                    lblStatus.Text = "ПОЗДРАВЛЯЕМ! ВЫ ПОБЕДИЛИ!";
-                    lblStatus.BackColor = Color.LightGreen;
-                }
-                else if (opponentWon)
-                {
-                    lblStatus.Text = "ИГРА ОКОНЧЕНА. ВЫ ПРОИГРАЛИ.";
-                    lblStatus.BackColor = Color.LightCoral;
-                }
-                else
-                {
-                    lblStatus.Text = "ИГРА ЗАВЕРШЕНА: " + r.Status;
-                    lblStatus.BackColor = Color.LightYellow;
-                }
+                lblStatus.Text = "ИГРА ЗАВЕРШЕНА: " + r.Status;
+                lblStatus.BackColor = Color.LightYellow;
             }
 
             for (int i = 0; i < 9; i++)
@@ -346,10 +204,11 @@ namespace TicTacToeClient_1_
             return new string(sub);
         }
 
-        protected override void OnFormClosing(FormClosingEventArgs e)
-        {
-            _cts.Cancel();
-            base.OnFormClosing(e);
-        }
+        private void OnRulesClick() => MessageBox.Show("Ultimate Tic-Tac-Toe Rules...", "Правила");
+        private void OnCreateRoom() { StartGameSession(_playerId, new Random().Next(1000, 9999).ToString()); }
+        private void OnJoinRoom() { if (txtRoomId.Text.Length == 4) StartGameSession(_playerId, txtRoomId.Text); }
+        private async void OnResetGame() { try { var r = await _client!.ResetGameAsync(new StateRequest { GameId = _gameId!, PlayerId = _playerId }); UpdateUI(r); } catch (Exception ex) { HandleException(ex); } }
+        private async void OnExitRoom() { try { if (await EnsureClient()) await _client!.ExitGameAsync(new ExitRequest { GameId = _gameId!, PlayerId = _playerId }); } catch { } Application.Restart(); }
+        protected override void OnFormClosing(FormClosingEventArgs e) { _cts.Cancel(); base.OnFormClosing(e); }
     }
 }
