@@ -1,0 +1,2850 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+.gitattributes
+.gitignore
+repomix-output1.xml
+TicTacToeClient(1).slnx
+TicTacToeClient(1)/App.config
+TicTacToeClient(1)/MainForm.cs
+TicTacToeClient(1)/MainForm.Designer.cs
+TicTacToeClient(1)/MainForm.resx
+TicTacToeClient(1)/Program.cs
+TicTacToeClient(1)/Protos/GameService.proto
+TicTacToeClient(1)/SmallBoardUC.cs
+TicTacToeClient(1)/SmallBoardUC.resx
+TicTacToeClient(1)/TicTacToeClient(1).csproj
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="repomix-output1.xml">
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+.gitattributes
+.gitignore
+TicTacToeClient(1).slnx
+TicTacToeClient(1)/App.config
+TicTacToeClient(1)/MainForm.cs
+TicTacToeClient(1)/MainForm.Designer.cs
+TicTacToeClient(1)/MainForm.resx
+TicTacToeClient(1)/Program.cs
+TicTacToeClient(1)/Protos/GameService.proto
+TicTacToeClient(1)/SmallBoardUC.cs
+TicTacToeClient(1)/SmallBoardUC.resx
+TicTacToeClient(1)/TicTacToeClient(1).csproj
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="TicTacToeClient(1)/App.config">
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+	<appSettings>
+		<add key="ConsulAddress" value="http://127.0.0.1:8500" />
+		<add key="ServiceName" value="tictactoe-service" />
+	</appSettings>
+</configuration>
+</file>
+
+<file path="TicTacToeClient(1)/SmallBoardUC.resx">
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>
+</file>
+
+<file path=".gitattributes">
+###############################################################################
+# Set default behavior to automatically normalize line endings.
+###############################################################################
+* text=auto
+
+###############################################################################
+# Set default behavior for command prompt diff.
+#
+# This is need for earlier builds of msysgit that does not have it on by
+# default for csharp files.
+# Note: This is only used by command line
+###############################################################################
+#*.cs     diff=csharp
+
+###############################################################################
+# Set the merge driver for project and solution files
+#
+# Merging from the command prompt will add diff markers to the files if there
+# are conflicts (Merging from VS is not affected by the settings below, in VS
+# the diff markers are never inserted). Diff markers may cause the following 
+# file extensions to fail to load in VS. An alternative would be to treat
+# these files as binary and thus will always conflict and require user
+# intervention with every merge. To do so, just uncomment the entries below
+###############################################################################
+#*.sln       merge=binary
+#*.csproj    merge=binary
+#*.vbproj    merge=binary
+#*.vcxproj   merge=binary
+#*.vcproj    merge=binary
+#*.dbproj    merge=binary
+#*.fsproj    merge=binary
+#*.lsproj    merge=binary
+#*.wixproj   merge=binary
+#*.modelproj merge=binary
+#*.sqlproj   merge=binary
+#*.wwaproj   merge=binary
+
+###############################################################################
+# behavior for image files
+#
+# image files are treated as binary by default.
+###############################################################################
+#*.jpg   binary
+#*.png   binary
+#*.gif   binary
+
+###############################################################################
+# diff behavior for common document formats
+# 
+# Convert binary document formats to text before diffing them. This feature
+# is only available from the command line. Turn it on by uncommenting the 
+# entries below.
+###############################################################################
+#*.doc   diff=astextplain
+#*.DOC   diff=astextplain
+#*.docx  diff=astextplain
+#*.DOCX  diff=astextplain
+#*.dot   diff=astextplain
+#*.DOT   diff=astextplain
+#*.pdf   diff=astextplain
+#*.PDF   diff=astextplain
+#*.rtf   diff=astextplain
+#*.RTF   diff=astextplain
+</file>
+
+<file path=".gitignore">
+## Ignore Visual Studio temporary files, build results, and
+## files generated by popular Visual Studio add-ons.
+##
+## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (MonoDevelop/Xamarin Studio)
+*.userprefs
+
+# Mono auto generated files
+mono_crash.*
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio 2015/2017 cache/options directory
+.vs/
+# Uncomment if you have tasks that create the project's static files in wwwroot
+#wwwroot/
+
+# Visual Studio 2017 auto generated files
+Generated\ Files/
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NUnit
+*.VisualState.xml
+TestResult.xml
+nunit-*.xml
+
+# Build Results of an ATL Project
+[Dd]ebugPS/
+[Rr]eleasePS/
+dlldata.c
+
+# Benchmark Results
+BenchmarkDotNet.Artifacts/
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# StyleCop
+StyleCopReport.xml
+
+# Files built by Visual Studio
+*_i.c
+*_p.c
+*_h.h
+*.ilk
+*.meta
+*.obj
+*.iobj
+*.pch
+*.pdb
+*.ipdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*_wpftmp.csproj
+*.log
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+
+# Chutzpah Test files
+_Chutzpah*
+
+# Visual C++ cache files
+ipch/
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+# Visual Studio Trace Files
+*.e2e
+
+# TFS 2012 Local Workspace
+$tf/
+
+# Guidance Automation Toolkit
+*.gpState
+
+# ReSharper is a .NET coding add-in
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# TeamCity is a build add-in
+_TeamCity*
+
+# DotCover is a Code Coverage Tool
+*.dotCover
+
+# AxoCover is a Code Coverage Tool
+.axoCover/*
+!.axoCover/settings.json
+
+# Coverlet is a free, cross platform Code Coverage Tool
+coverage*.json
+coverage*.xml
+coverage*.info
+
+# Visual Studio code coverage results
+*.coverage
+*.coveragexml
+
+# NCrunch
+_NCrunch_*
+.*crunch*.local.xml
+nCrunchTemp_*
+
+# MightyMoose
+*.mm.*
+AutoTest.Net/
+
+# Web workbench (sass)
+.sass-cache/
+
+# Installshield output folder
+[Ee]xpress/
+
+# DocProject is a documentation generator add-in
+DocProject/buildhelp/
+DocProject/Help/*.HxT
+DocProject/Help/*.HxC
+DocProject/Help/*.hhc
+DocProject/Help/*.hhk
+DocProject/Help/*.hhp
+DocProject/Help/Html2
+DocProject/Help/html
+
+# Click-Once directory
+publish/
+
+# Publish Web Output
+*.[Pp]ublish.xml
+*.azurePubxml
+# Note: Comment the next line if you want to checkin your web deploy settings,
+# but database connection strings (with potential passwords) will be unencrypted
+*.pubxml
+*.publishproj
+
+# Microsoft Azure Web App publish settings. Comment the next line if you want to
+# checkin your Azure Web App publish settings, but sensitive information contained
+# in these scripts will be unencrypted
+PublishScripts/
+
+# NuGet Packages
+*.nupkg
+# NuGet Symbol Packages
+*.snupkg
+# The packages folder can be ignored because of Package Restore
+**/[Pp]ackages/*
+# except build/, which is used as an MSBuild target.
+!**/[Pp]ackages/build/
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/[Pp]ackages/repositories.config
+# NuGet v3's project.json files produces more ignorable files
+*.nuget.props
+*.nuget.targets
+
+# Microsoft Azure Build Output
+csx/
+*.build.csdef
+
+# Microsoft Azure Emulator
+ecf/
+rcf/
+
+# Windows Store app package directories and files
+AppPackages/
+BundleArtifacts/
+Package.StoreAssociation.xml
+_pkginfo.txt
+*.appx
+*.appxbundle
+*.appxupload
+
+# Visual Studio cache files
+# files ending in .cache can be ignored
+*.[Cc]ache
+# but keep track of directories ending in .cache
+!?*.[Cc]ache/
+
+# Others
+ClientBin/
+~$*
+*~
+*.dbmdl
+*.dbproj.schemaview
+*.jfm
+*.pfx
+*.publishsettings
+orleans.codegen.cs
+
+# Including strong name files can present a security risk
+# (https://github.com/github/gitignore/pull/2483#issue-259490424)
+#*.snk
+
+# Since there are multiple workflows, uncomment next line to ignore bower_components
+# (https://github.com/github/gitignore/pull/1529#issuecomment-104372622)
+#bower_components/
+
+# RIA/Silverlight projects
+Generated_Code/
+
+# Backup & report files from converting an old project file
+# to a newer Visual Studio version. Backup files are not needed,
+# because we have git ;-)
+_UpgradeReport_Files/
+Backup*/
+UpgradeLog*.XML
+UpgradeLog*.htm
+ServiceFabricBackup/
+*.rptproj.bak
+
+# SQL Server files
+*.mdf
+*.ldf
+*.ndf
+
+# Business Intelligence projects
+*.rdl.data
+*.bim.layout
+*.bim_*.settings
+*.rptproj.rsuser
+*- [Bb]ackup.rdl
+*- [Bb]ackup ([0-9]).rdl
+*- [Bb]ackup ([0-9][0-9]).rdl
+
+# Microsoft Fakes
+FakesAssemblies/
+
+# GhostDoc plugin setting file
+*.GhostDoc.xml
+
+# Node.js Tools for Visual Studio
+.ntvs_analysis.dat
+node_modules/
+
+# Visual Studio 6 build log
+*.plg
+
+# Visual Studio 6 workspace options file
+*.opt
+
+# Visual Studio 6 auto-generated workspace file (contains which files were open etc.)
+*.vbw
+
+# Visual Studio LightSwitch build output
+**/*.HTMLClient/GeneratedArtifacts
+**/*.DesktopClient/GeneratedArtifacts
+**/*.DesktopClient/ModelManifest.xml
+**/*.Server/GeneratedArtifacts
+**/*.Server/ModelManifest.xml
+_Pvt_Extensions
+
+# Paket dependency manager
+.paket/paket.exe
+paket-files/
+
+# FAKE - F# Make
+.fake/
+
+# CodeRush personal settings
+.cr/personal
+
+# Python Tools for Visual Studio (PTVS)
+__pycache__/
+*.pyc
+
+# Cake - Uncomment if you are using it
+# tools/**
+# !tools/packages.config
+
+# Tabs Studio
+*.tss
+
+# Telerik's JustMock configuration file
+*.jmconfig
+
+# BizTalk build output
+*.btp.cs
+*.btm.cs
+*.odx.cs
+*.xsd.cs
+
+# OpenCover UI analysis results
+OpenCover/
+
+# Azure Stream Analytics local run output
+ASALocalRun/
+
+# MSBuild Binary and Structured Log
+*.binlog
+
+# NVidia Nsight GPU debugger configuration file
+*.nvuser
+
+# MFractors (Xamarin productivity tool) working folder
+.mfractor/
+
+# Local History for Visual Studio
+.localhistory/
+
+# BeatPulse healthcheck temp database
+healthchecksdb
+
+# Backup folder for Package Reference Convert tool in Visual Studio 2017
+MigrationBackup/
+
+# Ionide (cross platform F# VS Code tools) working folder
+.ionide/
+
+# Fody - auto-generated XML schema
+FodyWeavers.xsd
+</file>
+
+<file path="TicTacToeClient(1).slnx">
+<Solution>
+  <Project Path="TicTacToeClient(1)/TicTacToeClient(1).csproj" />
+</Solution>
+</file>
+
+<file path="TicTacToeClient(1)/MainForm.resx">
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!--
+    Microsoft ResX Schema
+
+    Version 2.0
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
+    associated with the data types.
+
+    Example:
+
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+
+    There are any number of "resheader" rows that contain simple
+    name/value pairs.
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
+    mimetype set.
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
+    extensible. For a given mimetype the value must be set accordingly:
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
+    read any of the formats listed below.
+
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>
+</file>
+
+<file path="TicTacToeClient(1)/Program.cs">
+namespace TicTacToeClient_1_
+{
+    internal static class Program
+    {
+        /// <summary>
+        ///  The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
+        {
+            // To customize application configuration such as set high DPI settings or default font,
+            // see https://aka.ms/applicationconfiguration.
+            ApplicationConfiguration.Initialize();
+            Application.Run(new MainForm());
+        }
+    }
+}
+</file>
+
+<file path="TicTacToeClient(1)/SmallBoardUC.cs">
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace TicTacToeClient_1_
+{
+    public class SmallBoardUC : UserControl
+    {
+        public Button[] Buttons = new Button[9];
+        public event Action<int>? OnCellClick;
+        public int BoardIdx { get; }
+
+        public SmallBoardUC(int idx)
+        {
+            BoardIdx = idx;
+            Size = new Size(150, 150);
+            Margin = new Padding(5);
+            BackColor = Color.White;
+            
+            for (int i = 0; i < 9; i++)
+            {
+                int localIdx = i;
+                Buttons[i] = new Button
+                {
+                    Size = new Size(50, 50),
+                    Location = new Point((i % 3) * 50, (i / 3) * 50),
+                    FlatStyle = FlatStyle.Flat,
+                    Font = new Font("Arial", 16, FontStyle.Bold),
+                    BackColor = Color.White,
+                    TabStop = false
+                };
+                Buttons[i].FlatAppearance.BorderColor = Color.Black;
+                Buttons[i].Click += (s, e) => OnCellClick?.Invoke(localIdx);
+                Controls.Add(Buttons[i]);
+            }
+        }
+
+        public void UpdateBoard(string subBoard, char winner, bool isMyTurn, bool isBoardActive)
+        {
+            for (int i = 0; i < 9; i++)
+            {
+                char cell = subBoard[i];
+                Buttons[i].Text = cell == '.' ? "" : cell.ToString();
+                
+                if (cell == 'X') Buttons[i].ForeColor = Color.Blue;
+                else if (cell == 'O') Buttons[i].ForeColor = Color.Red;
+            }
+
+            if (winner != '.')
+            {
+                Color winColor = winner == 'X' ? Color.LightBlue : Color.LightPink;
+                this.BackColor = winColor;
+                foreach (var btn in Buttons)
+                {
+                    btn.Enabled = false;
+                    btn.BackColor = winColor;
+                }
+                return;
+            }
+
+            for (int i = 0; i < 9; i++)
+            {
+                char cell = subBoard[i];
+                // Если сервер недоступен, isMyTurn будет false, и canClick тоже
+                bool canClick = (cell == '.') && isMyTurn && isBoardActive;
+                Buttons[i].Enabled = canClick;
+
+                if (canClick)
+                    Buttons[i].BackColor = Color.White;
+                else
+                    Buttons[i].BackColor = cell == '.' ? Color.LightGray : Color.White;
+            }
+            
+            this.BackColor = Color.White;
+        }
+
+        public void SetHighlight(bool active)
+        {
+            if (active)
+            {
+                this.BorderStyle = BorderStyle.Fixed3D;
+                this.BackColor = Color.LightYellow;
+            }
+            else
+            {
+                this.BorderStyle = BorderStyle.None;
+                if (BackColor == Color.LightYellow) BackColor = Color.Transparent;
+            }
+        }
+    }
+}
+</file>
+
+<file path="TicTacToeClient(1)/MainForm.cs">
+using Grpc.Net.Client;
+using TicTacToe.App.Protos;
+using Consul;
+using System.Net.Http;
+using System.Configuration; // Нужно для работы с App.config
+
+namespace TicTacToeClient_1_
+{
+    public partial class MainForm : Form
+    {
+        private GameService.GameServiceClient? _client;
+        private string? _gameId;
+        private string _playerId = "";
+        private SmallBoardUC[] _boards = new SmallBoardUC[9];
+        private System.Windows.Forms.Timer _timer = new();
+
+        public MainForm()
+        {
+            AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
+            InitializeComponent();
+            for (int i = 0; i < 9; i++)
+            {
+                _boards[i] = new SmallBoardUC(i);
+                int idx = i;
+                _boards[i].OnCellClick += (cIdx) => MakeMove(idx, cIdx);
+                flowLayoutPanel1.Controls.Add(_boards[i]);
+            }
+            _timer.Interval = 1500;
+            _timer.Tick += async (s, e) => await RefreshState();
+        }
+
+        private async Task<bool> EnsureClient()
+        {
+            if (_client != null) return true;
+            try
+            {
+                // 1. Получаем адрес Consul (сначала ENV, потом App.config, потом default)
+                string consulAddr = Environment.GetEnvironmentVariable("ConsulAddress")
+                                    ?? ConfigurationManager.AppSettings["ConsulAddress"]
+                                    ?? "http://localhost:8500";
+
+                // 2. Получаем имя сервиса
+                string serviceName = Environment.GetEnvironmentVariable("ServiceName")
+                                     ?? ConfigurationManager.AppSettings["ServiceName"]
+                                     ?? "tictactoe-service";
+
+                using var consul = new ConsulClient(c => c.Address = new Uri(consulAddr));
+                var services = await consul.Health.Service(serviceName, null, true);
+
+                if (services.Response.Length > 0)
+                {
+                    var s = services.Response[0].Service;
+                    var httpHandler = new HttpClientHandler();
+                    httpHandler.ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
+
+                    // Формируем адрес сервера из данных Consul
+                    var channel = GrpcChannel.ForAddress($"https://{s.Address}:{s.Port}", new GrpcChannelOptions { HttpHandler = httpHandler });
+                    _client = new GameService.GameServiceClient(channel);
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                lblStatus.Text = "Ошибка конфигурации: " + ex.Message;
+            }
+            lblStatus.Text = "Поиск сервера...";
+            return false;
+        }
+
+        private void OnRulesClick()
+        {
+            string rulesText = @"Ultimate Крестики-Нолики 3x3
+
+Правила игры:
+1. Игровое поле состоит из 9 досок 3x3
+2. Первый ход делается в любую клетку
+3. Следующий ход определяется предыдущим:
+   - Играется в доске, соответствующей позиции
+   последнего хода
+4. Игрок захватывает доску победив по классическим правилам
+5. Побеждает игрок, первым захвативший 3 доски";
+
+            MessageBox.Show(rulesText, "Правила игры", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private async void OnCheckPlayer()
+        {
+            if (string.IsNullOrWhiteSpace(txtLogin.Text)) return;
+            if (!await EnsureClient()) return;
+
+            _playerId = txtLogin.Text.Trim();
+            try
+            {
+                var res = await _client!.CheckSessionAsync(new CheckRequest { PlayerId = _playerId });
+                if (res.Exists)
+                {
+                    StartGameSession(_playerId, res.GameId);
+                }
+                else
+                {
+                    loginPanel.Visible = false;
+                    roomPanel.Visible = true;
+                }
+            }
+            catch { lblStatus.Text = "Ошибка связи"; _client = null; }
+        }
+
+        private void OnCreateRoom()
+        {
+            string rid = new Random().Next(1000, 9999).ToString();
+            StartGameSession(_playerId, rid);
+        }
+
+        private void OnJoinRoom()
+        {
+            if (txtRoomId.Text.Length == 4) StartGameSession(_playerId, txtRoomId.Text);
+        }
+
+        private async void StartGameSession(string nick, string rid)
+        {
+            if (!await EnsureClient()) return;
+            _gameId = rid;
+
+            try
+            {
+                var r = await _client!.CreateGameAsync(new CreateRequest { PlayerId = $"{nick}|{rid}" });
+
+                roomPanel.Visible = false;
+                loginPanel.Visible = false;
+                headerPanel.Visible = true;
+                flowLayoutPanel1.Visible = true;
+
+                UpdateUI(r);
+                _timer.Start();
+            }
+            catch { _client = null; }
+        }
+
+        private async void OnResetGame()
+        {
+            lblStatus.Text = "Сброс игры...";
+            if (!await EnsureClient() || _gameId == null) return;
+            try
+            {
+                var r = await _client!.ResetGameAsync(new StateRequest { GameId = _gameId, PlayerId = _playerId });
+                UpdateUI(r);
+            }
+            catch { _client = null; }
+        }
+
+        private async void OnExitRoom()
+        {
+            if (_gameId != null)
+            {
+                try
+                {
+                    if (await EnsureClient())
+                    {
+                        await _client!.ExitGameAsync(new ExitRequest { GameId = _gameId, PlayerId = _playerId });
+                    }
+                }
+                catch { }
+            }
+            _timer.Stop();
+            _gameId = null;
+            _client = null;
+            flowLayoutPanel1.Visible = false;
+            headerPanel.Visible = false;
+            loginPanel.Visible = true;
+            roomPanel.Visible = false;
+            lblStatus.BackColor = Color.SkyBlue;
+            lblStatus.Text = "Введите логин";
+        }
+
+        private async void MakeMove(int bIdx, int cIdx)
+        {
+            if (!await EnsureClient() || _gameId == null) return;
+            try
+            {
+                var r = await _client!.MakeMoveAsync(new MoveRequest
+                {
+                    GameId = _gameId,
+                    PlayerId = _playerId,
+                    BoardX = bIdx % 3,
+                    BoardY = bIdx / 3,
+                    CellX = cIdx % 3,
+                    CellY = cIdx / 3
+                });
+                if (!string.IsNullOrEmpty(r.Error)) MessageBox.Show(r.Error);
+                UpdateUI(r);
+            }
+            catch { _client = null; }
+        }
+
+        private async Task RefreshState()
+        {
+            if (_gameId == null) return;
+            if (!await EnsureClient()) return;
+            try
+            {
+                var r = await _client!.GetStateAsync(new StateRequest { GameId = _gameId, PlayerId = _playerId });
+                UpdateUI(r);
+            }
+            catch { _client = null; }
+        }
+
+        private void UpdateUI(GameResponse r)
+        {
+            if (this.InvokeRequired) { this.BeginInvoke(new Action(() => UpdateUI(r))); return; }
+
+            lblInfo.Text = $"ВЫ: {_playerId}  |  КОМНАТА: #{r.GameId}\nИГРОКИ: X({r.PlayerX}) vs O({r.PlayerO})";
+
+            btnNewGame.Visible = (r.Status != "Playing");
+
+            bool isMyTurn = (r.CurrentPlayerId == _playerId) && (r.Status == "Playing");
+
+            if (r.Status == "Playing")
+            {
+                lblStatus.Text = isMyTurn ? "ВАШ ХОД!" : $"Ожидание: {r.CurrentPlayerId}";
+                lblStatus.BackColor = Color.SkyBlue;
+            }
+            else if (r.Status == "Draw")
+            {
+                lblStatus.Text = "ИГРА ЗАВЕРШЕНА: НИЧЬЯ";
+                lblStatus.BackColor = Color.LightGray;
+            }
+            else
+            {
+                bool iAmX = (r.PlayerX == _playerId);
+                bool iAmO = (r.PlayerO == _playerId);
+                bool xWon = (r.Status == "X_Won");
+                bool oWon = (r.Status == "O_Won");
+
+                bool iWon = (iAmX && xWon) || (iAmO && oWon);
+                bool opponentWon = (iAmX && oWon) || (iAmO && xWon);
+
+                if (iWon)
+                {
+                    lblStatus.Text = "ПОЗДРАВЛЯЕМ! ВЫ ПОБЕДИЛИ!";
+                    lblStatus.BackColor = Color.LightGreen;
+                }
+                else if (opponentWon)
+                {
+                    lblStatus.Text = "ИГРА ОКОНЧЕНА. ВЫ ПРОИГРАЛИ.";
+                    lblStatus.BackColor = Color.LightCoral;
+                }
+                else
+                {
+                    lblStatus.Text = "ИГРА ЗАВЕРШЕНА: " + r.Status;
+                    lblStatus.BackColor = Color.LightYellow;
+                }
+            }
+
+            for (int i = 0; i < 9; i++)
+            {
+                string sub = GetSubBoardString(r.FullBoard, i);
+                bool active = (r.ActiveBoardX == -1) || (r.ActiveBoardX == i % 3 && r.ActiveBoardY == i / 3);
+                _boards[i].UpdateBoard(sub, r.SmallBoardWinners[i], isMyTurn, active);
+                _boards[i].SetHighlight(active && isMyTurn && r.Status == "Playing");
+            }
+        }
+
+        private string GetSubBoardString(string full, int bIdx)
+        {
+            if (string.IsNullOrEmpty(full) || full.Length < 81) return ".........";
+            char[] sub = new char[9];
+            int bX = bIdx % 3, bY = bIdx / 3;
+            for (int y = 0; y < 3; y++)
+                for (int x = 0; x < 3; x++)
+                    sub[y * 3 + x] = full[((bY * 3 + y) * 9 + (bX * 3 + x))];
+            return new string(sub);
+        }
+    }
+}
+</file>
+
+<file path="TicTacToeClient(1)/MainForm.Designer.cs">
+namespace TicTacToeClient_1_
+{
+    partial class MainForm
+    {
+        private System.ComponentModel.IContainer components = null;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Panel loginPanel;
+        private System.Windows.Forms.TextBox txtLogin;
+        private System.Windows.Forms.Button btnCheckLogin;
+        private System.Windows.Forms.Label lblTitle; // Новый элемент
+        
+        private System.Windows.Forms.Panel roomPanel;
+        private System.Windows.Forms.Button btnCreateRoom;
+        private System.Windows.Forms.Button btnJoinRoom;
+        private System.Windows.Forms.TextBox txtRoomId;
+        
+        private System.Windows.Forms.Panel headerPanel;
+        private System.Windows.Forms.Label lblInfo;
+        private System.Windows.Forms.Button btnNewGame;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnRules;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.loginPanel = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.txtLogin = new System.Windows.Forms.TextBox();
+            this.btnCheckLogin = new System.Windows.Forms.Button();
+            this.roomPanel = new System.Windows.Forms.Panel();
+            this.btnCreateRoom = new System.Windows.Forms.Button();
+            this.btnJoinRoom = new System.Windows.Forms.Button();
+            this.txtRoomId = new System.Windows.Forms.TextBox();
+            this.headerPanel = new System.Windows.Forms.Panel();
+            this.lblInfo = new System.Windows.Forms.Label();
+            this.btnNewGame = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnRules = new System.Windows.Forms.Button();
+            this.headerPanel.SuspendLayout();
+            this.loginPanel.SuspendLayout();
+            this.roomPanel.SuspendLayout();
+            this.SuspendLayout();
+
+            // headerPanel
+            this.headerPanel.Controls.Add(this.btnRules);
+            this.headerPanel.Controls.Add(this.btnNewGame);
+            this.headerPanel.Controls.Add(this.btnExit);
+            this.headerPanel.Controls.Add(this.lblInfo);
+            this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.headerPanel.Height = 70;
+            this.headerPanel.BackColor = Color.WhiteSmoke;
+            this.headerPanel.Visible = false;
+
+            // lblInfo
+            this.lblInfo.Location = new System.Drawing.Point(10, 5);
+            this.lblInfo.Size = new System.Drawing.Size(225, 60);
+            this.lblInfo.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+            this.lblInfo.TextAlign = ContentAlignment.MiddleLeft;
+
+            // btnRules
+            this.btnRules.Location = new System.Drawing.Point(240, 37);
+            this.btnRules.Size = new System.Drawing.Size(130, 28);
+            this.btnRules.Text = "Правила";
+            this.btnRules.BackColor = Color.LightYellow;
+            this.btnRules.FlatStyle = FlatStyle.Flat;
+            this.btnRules.Click += (s, e) => this.OnRulesClick();
+
+            // btnNewGame
+            this.btnNewGame.Location = new System.Drawing.Point(375, 5);
+            this.btnNewGame.Size = new System.Drawing.Size(130, 28);
+            this.btnNewGame.Text = "Новая партия";
+            this.btnNewGame.BackColor = Color.LightGreen;
+            this.btnNewGame.FlatStyle = FlatStyle.Flat;
+            this.btnNewGame.Visible = false;
+            this.btnNewGame.Click += (s, e) => this.OnResetGame();
+
+            // btnExit
+            this.btnExit.Location = new System.Drawing.Point(375, 37);
+            this.btnExit.Size = new System.Drawing.Size(130, 28);
+            this.btnExit.Text = "Выход";
+            this.btnExit.BackColor = Color.MistyRose;
+            this.btnExit.FlatStyle = FlatStyle.Flat;
+            this.btnExit.Click += (s, e) => this.OnExitRoom();
+
+            // flowLayoutPanel1
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 70);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10, 5, 10, 10);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(515, 495);
+            this.flowLayoutPanel1.Visible = false;
+
+            // lblStatus
+            this.lblStatus.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblStatus.Height = 35;
+            this.lblStatus.BackColor = Color.SkyBlue;
+            this.lblStatus.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+
+            // loginPanel
+            this.loginPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.loginPanel.Controls.Add(this.lblTitle);
+            this.loginPanel.Controls.Add(this.txtLogin);
+            this.loginPanel.Controls.Add(this.btnCheckLogin);
+
+            // lblTitle (Большая надпись)
+            this.lblTitle.Text = "Ultimate\nTic-Tac-Toe\nOnline";
+            this.lblTitle.Font = new Font("Segoe UI Light", 36, FontStyle.Bold);
+            this.lblTitle.ForeColor = Color.SaddleBrown;
+            this.lblTitle.TextAlign = ContentAlignment.MiddleCenter;
+            this.lblTitle.Size = new Size(520, 220);
+            this.lblTitle.Location = new Point(0, 40);
+
+            // txtLogin (Смещен вниз)
+            this.txtLogin.Location = new System.Drawing.Point(160, 300);
+            this.txtLogin.Size = new System.Drawing.Size(200, 23);
+            this.txtLogin.PlaceholderText = "Введите никнейм...";
+            this.txtLogin.TextAlign = HorizontalAlignment.Center;
+
+            // btnCheckLogin (Смещен вниз)
+            this.btnCheckLogin.Location = new System.Drawing.Point(160, 335);
+            this.btnCheckLogin.Size = new System.Drawing.Size(200, 45);
+            this.btnCheckLogin.Text = "ВОЙТИ В ИГРУ";
+            this.btnCheckLogin.BackColor = Color.Peru;
+            this.btnCheckLogin.ForeColor = Color.White;
+            this.btnCheckLogin.FlatStyle = FlatStyle.Flat;
+            this.btnCheckLogin.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            this.btnCheckLogin.Click += (s, e) => this.OnCheckPlayer();
+
+            // roomPanel
+            this.roomPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.roomPanel.Visible = false;
+            this.roomPanel.Controls.Add(this.btnCreateRoom);
+            this.roomPanel.Controls.Add(this.btnJoinRoom);
+            this.roomPanel.Controls.Add(this.txtRoomId);
+            this.btnCreateRoom.Location = new System.Drawing.Point(160, 180);
+            this.btnCreateRoom.Size = new System.Drawing.Size(200, 40);
+            this.btnCreateRoom.Text = "Создать комнату";
+            this.btnCreateRoom.Click += (s, e) => this.OnCreateRoom();
+            this.txtRoomId.Location = new System.Drawing.Point(160, 250);
+            this.txtRoomId.Size = new System.Drawing.Size(200, 23);
+            this.txtRoomId.PlaceholderText = "ID (4 цифры)";
+            this.btnJoinRoom.Location = new System.Drawing.Point(160, 280);
+            this.btnJoinRoom.Size = new System.Drawing.Size(200, 40);
+            this.btnJoinRoom.Text = "Присоединиться";
+            this.btnJoinRoom.Click += (s, e) => this.OnJoinRoom();
+
+            // MainForm
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(520, 600); 
+            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.headerPanel);
+            this.Controls.Add(this.roomPanel);
+            this.Controls.Add(this.loginPanel);
+            this.Controls.Add(this.lblStatus);
+            this.BackColor = Color.AntiqueWhite;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Ultimate Tic-Tac-Toe Online";
+            this.headerPanel.ResumeLayout(false);
+            this.loginPanel.ResumeLayout(false);
+            this.loginPanel.PerformLayout();
+            this.roomPanel.ResumeLayout(false);
+            this.roomPanel.PerformLayout();
+            this.ResumeLayout(false);
+        }
+    }
+}
+</file>
+
+<file path="TicTacToeClient(1)/Protos/GameService.proto">
+syntax = "proto3";
+
+option csharp_namespace = "TicTacToe.App.Protos";
+
+service GameService {
+    rpc CreateGame (CreateRequest) returns (GameResponse);
+    rpc MakeMove (MoveRequest) returns (GameResponse);
+    rpc GetState (StateRequest) returns (GameResponse);
+    rpc CheckSession (CheckRequest) returns (CheckResponse);
+    rpc ResetGame (StateRequest) returns (GameResponse);
+    rpc ExitGame (ExitRequest) returns (ExitResponse);
+}
+
+message CheckRequest {
+    string playerId = 1;
+}
+
+message CheckResponse {
+    string gameId = 1;
+    bool exists = 2;
+}
+
+message CreateRequest {
+    string playerId = 1; // Формат "Nickname|RoomID"
+}
+
+message StateRequest {
+    string gameId = 1;
+    string playerId = 2; 
+}
+
+message MoveRequest {
+    string gameId = 1;
+    string playerId = 2;
+    int32 boardX = 3;
+    int32 boardY = 4;
+    int32 cellX = 5;
+    int32 cellY = 6;
+}
+
+message ExitRequest {
+    string gameId = 1;
+    string playerId = 2;
+}
+
+message ExitResponse {
+    bool success = 1;
+}
+
+message GameResponse {
+    string gameId = 1;
+    string fullBoard = 2;
+    string smallBoardWinners = 3;
+    string currentPlayerId = 4;
+    string status = 5;
+    int32 activeBoardX = 6;      
+    int32 activeBoardY = 7;
+    string error = 8;
+    string playerX = 9;  // Добавлено поле
+    string playerO = 10; // Добавлено поле
+}
+</file>
+
+<file path="TicTacToeClient(1)/TicTacToeClient(1).csproj">
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <!-- Изменено с net10.0-windows на net9.0-windows -->
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <RootNamespace>TicTacToeClient_1_</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Consul" Version="1.7.14.9" />
+    <PackageReference Include="Google.Protobuf" Version="3.25.1" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.60.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.60.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+	<ItemGroup>
+		<Protobuf Include="Protos\GameService.proto" GrpcServices="Client" />
+	</ItemGroup>
+
+</Project>
+</file>
+
+</files>
+</file>
+
+<file path="TicTacToeClient(1)/App.config">
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+	<appSettings>
+		<add key="ConsulAddress" value="http://127.0.0.1:8500" />
+		<add key="ServiceName" value="tictactoe-service" />
+	</appSettings>
+</configuration>
+</file>
+
+<file path="TicTacToeClient(1)/SmallBoardUC.resx">
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>
+</file>
+
+<file path=".gitattributes">
+###############################################################################
+# Set default behavior to automatically normalize line endings.
+###############################################################################
+* text=auto
+
+###############################################################################
+# Set default behavior for command prompt diff.
+#
+# This is need for earlier builds of msysgit that does not have it on by
+# default for csharp files.
+# Note: This is only used by command line
+###############################################################################
+#*.cs     diff=csharp
+
+###############################################################################
+# Set the merge driver for project and solution files
+#
+# Merging from the command prompt will add diff markers to the files if there
+# are conflicts (Merging from VS is not affected by the settings below, in VS
+# the diff markers are never inserted). Diff markers may cause the following 
+# file extensions to fail to load in VS. An alternative would be to treat
+# these files as binary and thus will always conflict and require user
+# intervention with every merge. To do so, just uncomment the entries below
+###############################################################################
+#*.sln       merge=binary
+#*.csproj    merge=binary
+#*.vbproj    merge=binary
+#*.vcxproj   merge=binary
+#*.vcproj    merge=binary
+#*.dbproj    merge=binary
+#*.fsproj    merge=binary
+#*.lsproj    merge=binary
+#*.wixproj   merge=binary
+#*.modelproj merge=binary
+#*.sqlproj   merge=binary
+#*.wwaproj   merge=binary
+
+###############################################################################
+# behavior for image files
+#
+# image files are treated as binary by default.
+###############################################################################
+#*.jpg   binary
+#*.png   binary
+#*.gif   binary
+
+###############################################################################
+# diff behavior for common document formats
+# 
+# Convert binary document formats to text before diffing them. This feature
+# is only available from the command line. Turn it on by uncommenting the 
+# entries below.
+###############################################################################
+#*.doc   diff=astextplain
+#*.DOC   diff=astextplain
+#*.docx  diff=astextplain
+#*.DOCX  diff=astextplain
+#*.dot   diff=astextplain
+#*.DOT   diff=astextplain
+#*.pdf   diff=astextplain
+#*.PDF   diff=astextplain
+#*.rtf   diff=astextplain
+#*.RTF   diff=astextplain
+</file>
+
+<file path=".gitignore">
+## Ignore Visual Studio temporary files, build results, and
+## files generated by popular Visual Studio add-ons.
+##
+## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (MonoDevelop/Xamarin Studio)
+*.userprefs
+
+# Mono auto generated files
+mono_crash.*
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio 2015/2017 cache/options directory
+.vs/
+# Uncomment if you have tasks that create the project's static files in wwwroot
+#wwwroot/
+
+# Visual Studio 2017 auto generated files
+Generated\ Files/
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NUnit
+*.VisualState.xml
+TestResult.xml
+nunit-*.xml
+
+# Build Results of an ATL Project
+[Dd]ebugPS/
+[Rr]eleasePS/
+dlldata.c
+
+# Benchmark Results
+BenchmarkDotNet.Artifacts/
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# StyleCop
+StyleCopReport.xml
+
+# Files built by Visual Studio
+*_i.c
+*_p.c
+*_h.h
+*.ilk
+*.meta
+*.obj
+*.iobj
+*.pch
+*.pdb
+*.ipdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*_wpftmp.csproj
+*.log
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+
+# Chutzpah Test files
+_Chutzpah*
+
+# Visual C++ cache files
+ipch/
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+# Visual Studio Trace Files
+*.e2e
+
+# TFS 2012 Local Workspace
+$tf/
+
+# Guidance Automation Toolkit
+*.gpState
+
+# ReSharper is a .NET coding add-in
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# TeamCity is a build add-in
+_TeamCity*
+
+# DotCover is a Code Coverage Tool
+*.dotCover
+
+# AxoCover is a Code Coverage Tool
+.axoCover/*
+!.axoCover/settings.json
+
+# Coverlet is a free, cross platform Code Coverage Tool
+coverage*.json
+coverage*.xml
+coverage*.info
+
+# Visual Studio code coverage results
+*.coverage
+*.coveragexml
+
+# NCrunch
+_NCrunch_*
+.*crunch*.local.xml
+nCrunchTemp_*
+
+# MightyMoose
+*.mm.*
+AutoTest.Net/
+
+# Web workbench (sass)
+.sass-cache/
+
+# Installshield output folder
+[Ee]xpress/
+
+# DocProject is a documentation generator add-in
+DocProject/buildhelp/
+DocProject/Help/*.HxT
+DocProject/Help/*.HxC
+DocProject/Help/*.hhc
+DocProject/Help/*.hhk
+DocProject/Help/*.hhp
+DocProject/Help/Html2
+DocProject/Help/html
+
+# Click-Once directory
+publish/
+
+# Publish Web Output
+*.[Pp]ublish.xml
+*.azurePubxml
+# Note: Comment the next line if you want to checkin your web deploy settings,
+# but database connection strings (with potential passwords) will be unencrypted
+*.pubxml
+*.publishproj
+
+# Microsoft Azure Web App publish settings. Comment the next line if you want to
+# checkin your Azure Web App publish settings, but sensitive information contained
+# in these scripts will be unencrypted
+PublishScripts/
+
+# NuGet Packages
+*.nupkg
+# NuGet Symbol Packages
+*.snupkg
+# The packages folder can be ignored because of Package Restore
+**/[Pp]ackages/*
+# except build/, which is used as an MSBuild target.
+!**/[Pp]ackages/build/
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/[Pp]ackages/repositories.config
+# NuGet v3's project.json files produces more ignorable files
+*.nuget.props
+*.nuget.targets
+
+# Microsoft Azure Build Output
+csx/
+*.build.csdef
+
+# Microsoft Azure Emulator
+ecf/
+rcf/
+
+# Windows Store app package directories and files
+AppPackages/
+BundleArtifacts/
+Package.StoreAssociation.xml
+_pkginfo.txt
+*.appx
+*.appxbundle
+*.appxupload
+
+# Visual Studio cache files
+# files ending in .cache can be ignored
+*.[Cc]ache
+# but keep track of directories ending in .cache
+!?*.[Cc]ache/
+
+# Others
+ClientBin/
+~$*
+*~
+*.dbmdl
+*.dbproj.schemaview
+*.jfm
+*.pfx
+*.publishsettings
+orleans.codegen.cs
+
+# Including strong name files can present a security risk
+# (https://github.com/github/gitignore/pull/2483#issue-259490424)
+#*.snk
+
+# Since there are multiple workflows, uncomment next line to ignore bower_components
+# (https://github.com/github/gitignore/pull/1529#issuecomment-104372622)
+#bower_components/
+
+# RIA/Silverlight projects
+Generated_Code/
+
+# Backup & report files from converting an old project file
+# to a newer Visual Studio version. Backup files are not needed,
+# because we have git ;-)
+_UpgradeReport_Files/
+Backup*/
+UpgradeLog*.XML
+UpgradeLog*.htm
+ServiceFabricBackup/
+*.rptproj.bak
+
+# SQL Server files
+*.mdf
+*.ldf
+*.ndf
+
+# Business Intelligence projects
+*.rdl.data
+*.bim.layout
+*.bim_*.settings
+*.rptproj.rsuser
+*- [Bb]ackup.rdl
+*- [Bb]ackup ([0-9]).rdl
+*- [Bb]ackup ([0-9][0-9]).rdl
+
+# Microsoft Fakes
+FakesAssemblies/
+
+# GhostDoc plugin setting file
+*.GhostDoc.xml
+
+# Node.js Tools for Visual Studio
+.ntvs_analysis.dat
+node_modules/
+
+# Visual Studio 6 build log
+*.plg
+
+# Visual Studio 6 workspace options file
+*.opt
+
+# Visual Studio 6 auto-generated workspace file (contains which files were open etc.)
+*.vbw
+
+# Visual Studio LightSwitch build output
+**/*.HTMLClient/GeneratedArtifacts
+**/*.DesktopClient/GeneratedArtifacts
+**/*.DesktopClient/ModelManifest.xml
+**/*.Server/GeneratedArtifacts
+**/*.Server/ModelManifest.xml
+_Pvt_Extensions
+
+# Paket dependency manager
+.paket/paket.exe
+paket-files/
+
+# FAKE - F# Make
+.fake/
+
+# CodeRush personal settings
+.cr/personal
+
+# Python Tools for Visual Studio (PTVS)
+__pycache__/
+*.pyc
+
+# Cake - Uncomment if you are using it
+# tools/**
+# !tools/packages.config
+
+# Tabs Studio
+*.tss
+
+# Telerik's JustMock configuration file
+*.jmconfig
+
+# BizTalk build output
+*.btp.cs
+*.btm.cs
+*.odx.cs
+*.xsd.cs
+
+# OpenCover UI analysis results
+OpenCover/
+
+# Azure Stream Analytics local run output
+ASALocalRun/
+
+# MSBuild Binary and Structured Log
+*.binlog
+
+# NVidia Nsight GPU debugger configuration file
+*.nvuser
+
+# MFractors (Xamarin productivity tool) working folder
+.mfractor/
+
+# Local History for Visual Studio
+.localhistory/
+
+# BeatPulse healthcheck temp database
+healthchecksdb
+
+# Backup folder for Package Reference Convert tool in Visual Studio 2017
+MigrationBackup/
+
+# Ionide (cross platform F# VS Code tools) working folder
+.ionide/
+
+# Fody - auto-generated XML schema
+FodyWeavers.xsd
+</file>
+
+<file path="TicTacToeClient(1).slnx">
+<Solution>
+  <Project Path="TicTacToeClient(1)/TicTacToeClient(1).csproj" />
+</Solution>
+</file>
+
+<file path="TicTacToeClient(1)/MainForm.resx">
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!--
+    Microsoft ResX Schema
+
+    Version 2.0
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
+    associated with the data types.
+
+    Example:
+
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+
+    There are any number of "resheader" rows that contain simple
+    name/value pairs.
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
+    mimetype set.
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
+    extensible. For a given mimetype the value must be set accordingly:
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
+    read any of the formats listed below.
+
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>
+</file>
+
+<file path="TicTacToeClient(1)/Program.cs">
+namespace TicTacToeClient_1_
+{
+    internal static class Program
+    {
+        /// <summary>
+        ///  The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
+        {
+            // To customize application configuration such as set high DPI settings or default font,
+            // see https://aka.ms/applicationconfiguration.
+            ApplicationConfiguration.Initialize();
+            Application.Run(new MainForm());
+        }
+    }
+}
+</file>
+
+<file path="TicTacToeClient(1)/SmallBoardUC.cs">
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace TicTacToeClient_1_
+{
+    public class SmallBoardUC : UserControl
+    {
+        public Button[] Buttons = new Button[9];
+        public event Action<int>? OnCellClick;
+        public int BoardIdx { get; }
+
+        public SmallBoardUC(int idx)
+        {
+            BoardIdx = idx;
+            Size = new Size(150, 150);
+            Margin = new Padding(5);
+            BackColor = Color.White;
+            
+            for (int i = 0; i < 9; i++)
+            {
+                int localIdx = i;
+                Buttons[i] = new Button
+                {
+                    Size = new Size(50, 50),
+                    Location = new Point((i % 3) * 50, (i / 3) * 50),
+                    FlatStyle = FlatStyle.Flat,
+                    Font = new Font("Arial", 16, FontStyle.Bold),
+                    BackColor = Color.White,
+                    TabStop = false
+                };
+                Buttons[i].FlatAppearance.BorderColor = Color.Black;
+                Buttons[i].Click += (s, e) => OnCellClick?.Invoke(localIdx);
+                Controls.Add(Buttons[i]);
+            }
+        }
+
+        public void UpdateBoard(string subBoard, char winner, bool isMyTurn, bool isBoardActive)
+        {
+            for (int i = 0; i < 9; i++)
+            {
+                char cell = subBoard[i];
+                Buttons[i].Text = cell == '.' ? "" : cell.ToString();
+                
+                if (cell == 'X') Buttons[i].ForeColor = Color.Blue;
+                else if (cell == 'O') Buttons[i].ForeColor = Color.Red;
+            }
+
+            if (winner != '.')
+            {
+                Color winColor = winner == 'X' ? Color.LightBlue : Color.LightPink;
+                this.BackColor = winColor;
+                foreach (var btn in Buttons)
+                {
+                    btn.Enabled = false;
+                    btn.BackColor = winColor;
+                }
+                return;
+            }
+
+            for (int i = 0; i < 9; i++)
+            {
+                char cell = subBoard[i];
+                // Если сервер недоступен, isMyTurn будет false, и canClick тоже
+                bool canClick = (cell == '.') && isMyTurn && isBoardActive;
+                Buttons[i].Enabled = canClick;
+
+                if (canClick)
+                    Buttons[i].BackColor = Color.White;
+                else
+                    Buttons[i].BackColor = cell == '.' ? Color.LightGray : Color.White;
+            }
+            
+            this.BackColor = Color.White;
+        }
+
+        public void SetHighlight(bool active)
+        {
+            if (active)
+            {
+                this.BorderStyle = BorderStyle.Fixed3D;
+                this.BackColor = Color.LightYellow;
+            }
+            else
+            {
+                this.BorderStyle = BorderStyle.None;
+                if (BackColor == Color.LightYellow) BackColor = Color.Transparent;
+            }
+        }
+    }
+}
+</file>
+
+<file path="TicTacToeClient(1)/MainForm.cs">
+using Grpc.Net.Client;
+using TicTacToe.App.Protos;
+using Consul;
+using System.Net.Http;
+using System.Configuration; // Нужно для работы с App.config
+
+namespace TicTacToeClient_1_
+{
+    public partial class MainForm : Form
+    {
+        private GameService.GameServiceClient? _client;
+        private string? _gameId;
+        private string _playerId = "";
+        private SmallBoardUC[] _boards = new SmallBoardUC[9];
+        private System.Windows.Forms.Timer _timer = new();
+
+        public MainForm()
+        {
+            AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
+            InitializeComponent();
+            for (int i = 0; i < 9; i++)
+            {
+                _boards[i] = new SmallBoardUC(i);
+                int idx = i;
+                _boards[i].OnCellClick += (cIdx) => MakeMove(idx, cIdx);
+                flowLayoutPanel1.Controls.Add(_boards[i]);
+            }
+            _timer.Interval = 1500;
+            _timer.Tick += async (s, e) => await RefreshState();
+        }
+
+        private async Task<bool> EnsureClient()
+        {
+            if (_client != null) return true;
+            try
+            {
+                // 1. Получаем адрес Consul (сначала ENV, потом App.config, потом default)
+                string consulAddr = Environment.GetEnvironmentVariable("ConsulAddress")
+                                    ?? ConfigurationManager.AppSettings["ConsulAddress"]
+                                    ?? "http://localhost:8500";
+
+                // 2. Получаем имя сервиса
+                string serviceName = Environment.GetEnvironmentVariable("ServiceName")
+                                     ?? ConfigurationManager.AppSettings["ServiceName"]
+                                     ?? "tictactoe-service";
+
+                using var consul = new ConsulClient(c => c.Address = new Uri(consulAddr));
+                var services = await consul.Health.Service(serviceName, null, true);
+
+                if (services.Response.Length > 0)
+                {
+                    var s = services.Response[0].Service;
+                    var httpHandler = new HttpClientHandler();
+                    httpHandler.ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
+
+                    // Формируем адрес сервера из данных Consul
+                    var channel = GrpcChannel.ForAddress($"https://{s.Address}:{s.Port}", new GrpcChannelOptions { HttpHandler = httpHandler });
+                    _client = new GameService.GameServiceClient(channel);
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                lblStatus.Text = "Ошибка конфигурации: " + ex.Message;
+            }
+            lblStatus.Text = "Поиск сервера...";
+            return false;
+        }
+
+        private void OnRulesClick()
+        {
+            string rulesText = @"Ultimate Крестики-Нолики 3x3
+
+Правила игры:
+1. Игровое поле состоит из 9 досок 3x3
+2. Первый ход делается в любую клетку
+3. Следующий ход определяется предыдущим:
+   - Играется в доске, соответствующей позиции
+   последнего хода
+4. Игрок захватывает доску победив по классическим правилам
+5. Побеждает игрок, первым захвативший 3 доски";
+
+            MessageBox.Show(rulesText, "Правила игры", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private async void OnCheckPlayer()
+        {
+            if (string.IsNullOrWhiteSpace(txtLogin.Text)) return;
+            if (!await EnsureClient()) return;
+
+            _playerId = txtLogin.Text.Trim();
+            try
+            {
+                var res = await _client!.CheckSessionAsync(new CheckRequest { PlayerId = _playerId });
+                if (res.Exists)
+                {
+                    StartGameSession(_playerId, res.GameId);
+                }
+                else
+                {
+                    loginPanel.Visible = false;
+                    roomPanel.Visible = true;
+                }
+            }
+            catch { lblStatus.Text = "Ошибка связи"; _client = null; }
+        }
+
+        private void OnCreateRoom()
+        {
+            string rid = new Random().Next(1000, 9999).ToString();
+            StartGameSession(_playerId, rid);
+        }
+
+        private void OnJoinRoom()
+        {
+            if (txtRoomId.Text.Length == 4) StartGameSession(_playerId, txtRoomId.Text);
+        }
+
+        private async void StartGameSession(string nick, string rid)
+        {
+            if (!await EnsureClient()) return;
+            _gameId = rid;
+
+            try
+            {
+                var r = await _client!.CreateGameAsync(new CreateRequest { PlayerId = $"{nick}|{rid}" });
+
+                roomPanel.Visible = false;
+                loginPanel.Visible = false;
+                headerPanel.Visible = true;
+                flowLayoutPanel1.Visible = true;
+
+                UpdateUI(r);
+                _timer.Start();
+            }
+            catch { _client = null; }
+        }
+
+        private async void OnResetGame()
+        {
+            lblStatus.Text = "Сброс игры...";
+            if (!await EnsureClient() || _gameId == null) return;
+            try
+            {
+                var r = await _client!.ResetGameAsync(new StateRequest { GameId = _gameId, PlayerId = _playerId });
+                UpdateUI(r);
+            }
+            catch { _client = null; }
+        }
+
+        private async void OnExitRoom()
+        {
+            if (_gameId != null)
+            {
+                try
+                {
+                    if (await EnsureClient())
+                    {
+                        await _client!.ExitGameAsync(new ExitRequest { GameId = _gameId, PlayerId = _playerId });
+                    }
+                }
+                catch { }
+            }
+            _timer.Stop();
+            _gameId = null;
+            _client = null;
+            flowLayoutPanel1.Visible = false;
+            headerPanel.Visible = false;
+            loginPanel.Visible = true;
+            roomPanel.Visible = false;
+            lblStatus.BackColor = Color.SkyBlue;
+            lblStatus.Text = "Введите логин";
+        }
+
+        private async void MakeMove(int bIdx, int cIdx)
+        {
+            if (!await EnsureClient() || _gameId == null) return;
+            try
+            {
+                var r = await _client!.MakeMoveAsync(new MoveRequest
+                {
+                    GameId = _gameId,
+                    PlayerId = _playerId,
+                    BoardX = bIdx % 3,
+                    BoardY = bIdx / 3,
+                    CellX = cIdx % 3,
+                    CellY = cIdx / 3
+                });
+                if (!string.IsNullOrEmpty(r.Error)) MessageBox.Show(r.Error);
+                UpdateUI(r);
+            }
+            catch { _client = null; }
+        }
+
+        private async Task RefreshState()
+        {
+            if (_gameId == null) return;
+            if (!await EnsureClient()) return;
+            try
+            {
+                var r = await _client!.GetStateAsync(new StateRequest { GameId = _gameId, PlayerId = _playerId });
+                UpdateUI(r);
+            }
+            catch { _client = null; }
+        }
+
+        private void UpdateUI(GameResponse r)
+        {
+            if (this.InvokeRequired) { this.BeginInvoke(new Action(() => UpdateUI(r))); return; }
+
+            lblInfo.Text = $"ВЫ: {_playerId}  |  КОМНАТА: #{r.GameId}\nИГРОКИ: X({r.PlayerX}) vs O({r.PlayerO})";
+
+            btnNewGame.Visible = (r.Status != "Playing");
+
+            bool isMyTurn = (r.CurrentPlayerId == _playerId) && (r.Status == "Playing");
+
+            if (r.Status == "Playing")
+            {
+                lblStatus.Text = isMyTurn ? "ВАШ ХОД!" : $"Ожидание: {r.CurrentPlayerId}";
+                lblStatus.BackColor = Color.SkyBlue;
+            }
+            else if (r.Status == "Draw")
+            {
+                lblStatus.Text = "ИГРА ЗАВЕРШЕНА: НИЧЬЯ";
+                lblStatus.BackColor = Color.LightGray;
+            }
+            else
+            {
+                bool iAmX = (r.PlayerX == _playerId);
+                bool iAmO = (r.PlayerO == _playerId);
+                bool xWon = (r.Status == "X_Won");
+                bool oWon = (r.Status == "O_Won");
+
+                bool iWon = (iAmX && xWon) || (iAmO && oWon);
+                bool opponentWon = (iAmX && oWon) || (iAmO && xWon);
+
+                if (iWon)
+                {
+                    lblStatus.Text = "ПОЗДРАВЛЯЕМ! ВЫ ПОБЕДИЛИ!";
+                    lblStatus.BackColor = Color.LightGreen;
+                }
+                else if (opponentWon)
+                {
+                    lblStatus.Text = "ИГРА ОКОНЧЕНА. ВЫ ПРОИГРАЛИ.";
+                    lblStatus.BackColor = Color.LightCoral;
+                }
+                else
+                {
+                    lblStatus.Text = "ИГРА ЗАВЕРШЕНА: " + r.Status;
+                    lblStatus.BackColor = Color.LightYellow;
+                }
+            }
+
+            for (int i = 0; i < 9; i++)
+            {
+                string sub = GetSubBoardString(r.FullBoard, i);
+                bool active = (r.ActiveBoardX == -1) || (r.ActiveBoardX == i % 3 && r.ActiveBoardY == i / 3);
+                _boards[i].UpdateBoard(sub, r.SmallBoardWinners[i], isMyTurn, active);
+                _boards[i].SetHighlight(active && isMyTurn && r.Status == "Playing");
+            }
+        }
+
+        private string GetSubBoardString(string full, int bIdx)
+        {
+            if (string.IsNullOrEmpty(full) || full.Length < 81) return ".........";
+            char[] sub = new char[9];
+            int bX = bIdx % 3, bY = bIdx / 3;
+            for (int y = 0; y < 3; y++)
+                for (int x = 0; x < 3; x++)
+                    sub[y * 3 + x] = full[((bY * 3 + y) * 9 + (bX * 3 + x))];
+            return new string(sub);
+        }
+    }
+}
+</file>
+
+<file path="TicTacToeClient(1)/MainForm.Designer.cs">
+namespace TicTacToeClient_1_
+{
+    partial class MainForm
+    {
+        private System.ComponentModel.IContainer components = null;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Panel loginPanel;
+        private System.Windows.Forms.TextBox txtLogin;
+        private System.Windows.Forms.Button btnCheckLogin;
+        private System.Windows.Forms.Label lblTitle; // Новый элемент
+        
+        private System.Windows.Forms.Panel roomPanel;
+        private System.Windows.Forms.Button btnCreateRoom;
+        private System.Windows.Forms.Button btnJoinRoom;
+        private System.Windows.Forms.TextBox txtRoomId;
+        
+        private System.Windows.Forms.Panel headerPanel;
+        private System.Windows.Forms.Label lblInfo;
+        private System.Windows.Forms.Button btnNewGame;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnRules;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.loginPanel = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.txtLogin = new System.Windows.Forms.TextBox();
+            this.btnCheckLogin = new System.Windows.Forms.Button();
+            this.roomPanel = new System.Windows.Forms.Panel();
+            this.btnCreateRoom = new System.Windows.Forms.Button();
+            this.btnJoinRoom = new System.Windows.Forms.Button();
+            this.txtRoomId = new System.Windows.Forms.TextBox();
+            this.headerPanel = new System.Windows.Forms.Panel();
+            this.lblInfo = new System.Windows.Forms.Label();
+            this.btnNewGame = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnRules = new System.Windows.Forms.Button();
+            this.headerPanel.SuspendLayout();
+            this.loginPanel.SuspendLayout();
+            this.roomPanel.SuspendLayout();
+            this.SuspendLayout();
+
+            // headerPanel
+            this.headerPanel.Controls.Add(this.btnRules);
+            this.headerPanel.Controls.Add(this.btnNewGame);
+            this.headerPanel.Controls.Add(this.btnExit);
+            this.headerPanel.Controls.Add(this.lblInfo);
+            this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.headerPanel.Height = 70;
+            this.headerPanel.BackColor = Color.WhiteSmoke;
+            this.headerPanel.Visible = false;
+
+            // lblInfo
+            this.lblInfo.Location = new System.Drawing.Point(10, 5);
+            this.lblInfo.Size = new System.Drawing.Size(225, 60);
+            this.lblInfo.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+            this.lblInfo.TextAlign = ContentAlignment.MiddleLeft;
+
+            // btnRules
+            this.btnRules.Location = new System.Drawing.Point(240, 37);
+            this.btnRules.Size = new System.Drawing.Size(130, 28);
+            this.btnRules.Text = "Правила";
+            this.btnRules.BackColor = Color.LightYellow;
+            this.btnRules.FlatStyle = FlatStyle.Flat;
+            this.btnRules.Click += (s, e) => this.OnRulesClick();
+
+            // btnNewGame
+            this.btnNewGame.Location = new System.Drawing.Point(375, 5);
+            this.btnNewGame.Size = new System.Drawing.Size(130, 28);
+            this.btnNewGame.Text = "Новая партия";
+            this.btnNewGame.BackColor = Color.LightGreen;
+            this.btnNewGame.FlatStyle = FlatStyle.Flat;
+            this.btnNewGame.Visible = false;
+            this.btnNewGame.Click += (s, e) => this.OnResetGame();
+
+            // btnExit
+            this.btnExit.Location = new System.Drawing.Point(375, 37);
+            this.btnExit.Size = new System.Drawing.Size(130, 28);
+            this.btnExit.Text = "Выход";
+            this.btnExit.BackColor = Color.MistyRose;
+            this.btnExit.FlatStyle = FlatStyle.Flat;
+            this.btnExit.Click += (s, e) => this.OnExitRoom();
+
+            // flowLayoutPanel1
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 70);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10, 5, 10, 10);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(515, 495);
+            this.flowLayoutPanel1.Visible = false;
+
+            // lblStatus
+            this.lblStatus.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblStatus.Height = 35;
+            this.lblStatus.BackColor = Color.SkyBlue;
+            this.lblStatus.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+
+            // loginPanel
+            this.loginPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.loginPanel.Controls.Add(this.lblTitle);
+            this.loginPanel.Controls.Add(this.txtLogin);
+            this.loginPanel.Controls.Add(this.btnCheckLogin);
+
+            // lblTitle (Большая надпись)
+            this.lblTitle.Text = "Ultimate\nTic-Tac-Toe\nOnline";
+            this.lblTitle.Font = new Font("Segoe UI Light", 36, FontStyle.Bold);
+            this.lblTitle.ForeColor = Color.SaddleBrown;
+            this.lblTitle.TextAlign = ContentAlignment.MiddleCenter;
+            this.lblTitle.Size = new Size(520, 220);
+            this.lblTitle.Location = new Point(0, 40);
+
+            // txtLogin (Смещен вниз)
+            this.txtLogin.Location = new System.Drawing.Point(160, 300);
+            this.txtLogin.Size = new System.Drawing.Size(200, 23);
+            this.txtLogin.PlaceholderText = "Введите никнейм...";
+            this.txtLogin.TextAlign = HorizontalAlignment.Center;
+
+            // btnCheckLogin (Смещен вниз)
+            this.btnCheckLogin.Location = new System.Drawing.Point(160, 335);
+            this.btnCheckLogin.Size = new System.Drawing.Size(200, 45);
+            this.btnCheckLogin.Text = "ВОЙТИ В ИГРУ";
+            this.btnCheckLogin.BackColor = Color.Peru;
+            this.btnCheckLogin.ForeColor = Color.White;
+            this.btnCheckLogin.FlatStyle = FlatStyle.Flat;
+            this.btnCheckLogin.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            this.btnCheckLogin.Click += (s, e) => this.OnCheckPlayer();
+
+            // roomPanel
+            this.roomPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.roomPanel.Visible = false;
+            this.roomPanel.Controls.Add(this.btnCreateRoom);
+            this.roomPanel.Controls.Add(this.btnJoinRoom);
+            this.roomPanel.Controls.Add(this.txtRoomId);
+            this.btnCreateRoom.Location = new System.Drawing.Point(160, 180);
+            this.btnCreateRoom.Size = new System.Drawing.Size(200, 40);
+            this.btnCreateRoom.Text = "Создать комнату";
+            this.btnCreateRoom.Click += (s, e) => this.OnCreateRoom();
+            this.txtRoomId.Location = new System.Drawing.Point(160, 250);
+            this.txtRoomId.Size = new System.Drawing.Size(200, 23);
+            this.txtRoomId.PlaceholderText = "ID (4 цифры)";
+            this.btnJoinRoom.Location = new System.Drawing.Point(160, 280);
+            this.btnJoinRoom.Size = new System.Drawing.Size(200, 40);
+            this.btnJoinRoom.Text = "Присоединиться";
+            this.btnJoinRoom.Click += (s, e) => this.OnJoinRoom();
+
+            // MainForm
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(520, 600); 
+            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.headerPanel);
+            this.Controls.Add(this.roomPanel);
+            this.Controls.Add(this.loginPanel);
+            this.Controls.Add(this.lblStatus);
+            this.BackColor = Color.AntiqueWhite;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Ultimate Tic-Tac-Toe Online";
+            this.headerPanel.ResumeLayout(false);
+            this.loginPanel.ResumeLayout(false);
+            this.loginPanel.PerformLayout();
+            this.roomPanel.ResumeLayout(false);
+            this.roomPanel.PerformLayout();
+            this.ResumeLayout(false);
+        }
+    }
+}
+</file>
+
+<file path="TicTacToeClient(1)/Protos/GameService.proto">
+syntax = "proto3";
+
+option csharp_namespace = "TicTacToe.App.Protos";
+
+service GameService {
+    rpc CreateGame (CreateRequest) returns (GameResponse);
+    rpc MakeMove (MoveRequest) returns (GameResponse);
+    rpc GetState (StateRequest) returns (GameResponse);
+    rpc CheckSession (CheckRequest) returns (CheckResponse);
+    rpc ResetGame (StateRequest) returns (GameResponse);
+    rpc ExitGame (ExitRequest) returns (ExitResponse);
+}
+
+message CheckRequest {
+    string playerId = 1;
+}
+
+message CheckResponse {
+    string gameId = 1;
+    bool exists = 2;
+}
+
+message CreateRequest {
+    string playerId = 1; // Формат "Nickname|RoomID"
+}
+
+message StateRequest {
+    string gameId = 1;
+    string playerId = 2; 
+}
+
+message MoveRequest {
+    string gameId = 1;
+    string playerId = 2;
+    int32 boardX = 3;
+    int32 boardY = 4;
+    int32 cellX = 5;
+    int32 cellY = 6;
+}
+
+message ExitRequest {
+    string gameId = 1;
+    string playerId = 2;
+}
+
+message ExitResponse {
+    bool success = 1;
+}
+
+message GameResponse {
+    string gameId = 1;
+    string fullBoard = 2;
+    string smallBoardWinners = 3;
+    string currentPlayerId = 4;
+    string status = 5;
+    int32 activeBoardX = 6;      
+    int32 activeBoardY = 7;
+    string error = 8;
+    string playerX = 9;  // Добавлено поле
+    string playerO = 10; // Добавлено поле
+}
+</file>
+
+<file path="TicTacToeClient(1)/TicTacToeClient(1).csproj">
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <!-- Изменено с net10.0-windows на net9.0-windows -->
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <RootNamespace>TicTacToeClient_1_</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Consul" Version="1.7.14.9" />
+    <PackageReference Include="Google.Protobuf" Version="3.25.1" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.60.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.60.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+	<ItemGroup>
+		<Protobuf Include="Protos\GameService.proto" GrpcServices="Client" />
+	</ItemGroup>
+
+</Project>
+</file>
+
+</files>
